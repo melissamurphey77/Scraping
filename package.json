@@ -1,0 +1,27 @@
+{
+  "name": "scraping",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melissamurphey77/Scraping.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/melissamurphey77/Scraping/issues"
+  },
+  "homepage": "https://github.com/melissamurphey77/Scraping#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.4",
+    "express-hbs": "^2.0.0",
+    "heroku": "^7.19.4",
+    "mongoose": "^5.4.1"
+  }
+}
