@@ -1,6 +1,7 @@
 var express = require("express");
 var hbs = require('express-hbs');
 var mongoose = require("mongoose");
+var axios = require("axios");
 
 
 var PORT = 3000;
@@ -36,13 +37,19 @@ mongoose.connect(MONGODB_URI, function(error){
     }
 });
 
-// mongoose.connect("mongodb://localhost/mongoHeadlines", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/mongoHeadlines", { useNewUrlParser: true });
+
+app.get("/",function(req,res){
+    console.log("good");
+     res.render("/home");
+ });
 
 app.get("/scrape", function(req, res) {
     axios.get("https://www.nytimes.com/").then(function(response) {
         var $ = cheerio.load(response.data);
+        console.log(response.data)
 
-        $("article h2").each(function(i, element) {
+        $("article.story").each(function(i, element) {
             var result = {};
 
             result.title = $(this)
@@ -55,6 +62,8 @@ app.get("/scrape", function(req, res) {
         .children("p")
         .text();
 
+        
+
         db.Article.create(result)
         .then(function(dbArticle) {
             console.log(dbArticle);
@@ -62,9 +71,11 @@ app.get("/scrape", function(req, res) {
         .catch(function(err) {
             console.log(err);
         });
+
+        res.send("Scrape Complete");
     });
 
-    res.send("Scrape Complete");
+    
   });
 });
 

@@ -11,33 +11,34 @@ module.exports= {
                 articles[i].saved=false;
             }
                 
-                Headline.collection.insertMany(articles,{ordered: false}, function(err,docs){
-                    cb(err,docs);
-                });
-                
+            Headline.collection.insertMany(articles,{ordered: false}, function(err,docs){
+                cb(err,docs);
             });
-            
-        },
-
-        delete: function(query,cb) {
-            Headline.remove(query,cb);
-        },
-
-        get: function(query,cb) {
-            Headline.find(query,cb) {
-                .sort({_id: -1}),
                 
-                .exec(function(err, doc){
-                    cb(doc);
-                })
+        });
+            
+    },
 
-            }
+    delete: function(query,cb) {
+        Headline.remove(query,cb);
+    },
+
+    get: function(query,cb) {
+        Headline.find(query,cb) 
+            //     .sort({_id: -1}),
+                
+            //     .exec(function(err, doc){
+            //         cb(doc);
+            //     })
+
+        // }
 
             
-        },
+    },
 
-        update: function(query,cb) {
-            Headline.update({_id: query._id} {$set: query}, {}, cb); 
+    update: function(query,cb) {
+        Headline.update({_id: query._id}, {$set: query}, {}, cb);
+         
     }
 
 }

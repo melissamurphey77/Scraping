@@ -36,13 +36,13 @@ var Scrape = function(cb) {
         });
         console.log(articles);
 
-         // cb(articles); // put back in when running app
+        cb(articles); // put back in when running app
     });
 
    
     
 };
-Scrape(); //comment out when running application will not need
+// Scrape(); //comment out when running application will not need
 
 module.exports=Scrape;
 

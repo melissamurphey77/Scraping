@@ -7,6 +7,7 @@ var notesController= require("../controllers/notes");
 
 module.exports=function(router){
     router.get("/",function(req,res){
+       console.log("good");
         res.render("home");
     });
     router.get("/saved",function(req,res){

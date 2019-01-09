@@ -1,4 +1,4 @@
-var Note =require("../models/Note");
+var Note =require("../models/notes");
 var makeDate=require ("../scripts/date");
 
 module.exports = {
